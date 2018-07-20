@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Put some Hustle in that Bustle!</title>
+	<link rel="stylesheet" type="text/css" href="walkingapp.css">
+	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Marvel" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+		<h1>Walking Calculator</h1>
+		<h3> Wanna know how fast you were walking? How many calories you burned? Maybe even how many calories you could burn depending on how far you plan to walk? Well you're in the right spot. Enter the right information below, and I'll tell you what you need to know.* </h3>
+		</div>
+		<div id="calpermi">
+			<p id="mihide">close</p>
+			<h2> Calories Burned per Mile</h2>
+			<p>Please tell me your weight in pounds</p>
+			<input id="miweight" type="text">
+			<button id="subweight">Submit</button>
+			<button id="reset1">Reset</button>
+		</div>
+		<div id="speed">
+			<p id="speedhide">close</p>
+			<h2> Your Average Speed</h2>
+			<p>How far did you walk?</p>
+			<input id="speedmiles" type="text" value="0"> Miles
+			<p>How long did it take?</p>
+			<input id="speedhour" type="text" value="0"> Hours and <input id="speedminute" type="text" value="0">Minutes<br>
+			<button id="subspeed">Submit</button>
+			<button id="reset2">Reset</button>
+		</div>
+		<div id="calperwalk">
+			<p id="walkhide">close</p>
+			<h2> Calories Burned on Your Walk</h2>
+			<p> How much do you weigh</p>
+			<input id="walkweight" type="text" name=""> lbs
+			<p>How far did you walk?</p>
+			<input id="walkmiles" type="text" value="0"> Miles
+			<p>About how fast were you going?</p>
+			<input class="pace1" type="radio" name="radios1" value="2.0"> 2 mph<br> 
+			<input class="pace1" type="radio" name="radios1" value="2.5"> 2.5 mph <br>
+			<input class="pace1" type="radio" name="radios1" value="3.0"> 3 mph <br>
+			<input class="pace1" type="radio" name="radios1" value="3.5"> 3.5 mph <br>
+			<input class="pace1" type="radio" name="radios1" value="4.0"> 4 mph <br>
+			<input class="pace1" type="radio" name="radios1" value="4.5"> 4.5 mph <br>
+			<input class="pace1" type="radio" name="radios1" value="5.0"> 5 mph <br>
+			<button id="subburned">Submit</button>
+			<button id="reset3">Reset</button>
+		</div>
+		<div id="hypothetical">
+			<div id="hypohide">close</div>
+			<h2> Calories You Could Burn</h2>
+			<p> How much do you weigh?</p>
+			<input id= "hypoweight" type="text" name=""> lbs
+			<p> Enter how far you want to go or how many calories you want to burn:</p>
+			<input id ="hypomiles" type="text" name=""> Miles
+			<input id="hypocalories" type="text" name=""> Calories
+			<p> How fast do you wanna walk?</p>
+			<input class="pace2" type="radio" name="radios2" value="2.0"> 2 mph <br>
+			<input class="pace2" type="radio" name="radios2" value="2.5"> 2.5 mph <br>
+			<input class="pace2" type="radio" name="radios2" value="3.0"> 3 mph <br>
+			<input class="pace2" type="radio" name="radios2" name="radios2" value="3.5"> 3.5 mph <br>
+			<input class="pace2" type="radio" name="radios2" value="4.0"> 4 mph <br>
+			<input class="pace2" type="radio" name="radios2" value="4.5"> 4.5 mph <br>
+			<input class="pace2" type="radio" name="radios2" value="5.0"> 5 mph <br>
+			<button id="subhypo">Submit</button>
+			<button id="reset4">Reset</button>
+		</div>
+		<div id="button1"> Calories Burned per Mile</div>
+		<div id="button2"> Your Average Walking Speed</div>
+		<div id="button3"> Calories Burned This Walk</div>
+		<div id="button4"> Calories You Could Burn</div>
+		<p id="smallprint">*These calculations only take into account your speed and your weight, if you're walking up hill and thus using more energy, you're gonna burn more calories. Conversely, if you're using less energy by say slowing down or walking down hill, you're gonna burn less calories. Also, the most accurate way to see how many calories you burn is with a heart rate monitor; this is really just an estimate. Most importantly, I'm neither a doctor nor a medical professional. If you have any complications due to walking, go see someone who went to school for this. </p>
+	</div>
+<script>
+		//jquery that handles the buttons and the close bit
+	$(document).ready(function(){
+		$('#button1').click(function() {
+			$('#calpermi').fadeIn();
+			$('#hide').show();
+			container.setAttribute('style', 'margin-top: 5%; margin-bottom: 5%');
+			
+		});
+		$('#button2').click(function() {
+			$('#speed').fadeIn();
+			$('#hide').show();
+			container.setAttribute('style', 'margin-top: 5%; margin-bottom: 5%');
+			
+		});
+		$('#button3').click(function() {
+			$('#calperwalk').fadeIn();
+			$('#hide').show();
+			container.setAttribute('style', 'margin-top: 5%; margin-bottom: 5%');
+			
+		});
+		$('#button4').click(function() {
+			$('#hypothetical').fadeIn();
+			$('#hide').show();
+			container.setAttribute('style', 'margin-top: 5%; margin-bottom: 5%');
+			
+		});
+		$('#mihide').click(function() {
+			$('#calpermi').hide();
+			$('#hide').hide();
+			container.setAttribute('style', 'margin-top: 10%; margin-bottom: 5%');
+
+		});
+		$('#speedhide').click(function() {
+			$('#speed').hide();
+			$('#hide').hide();
+			container.setAttribute('style', 'margin-top: 10%; margin-bottom: 5%');
+		});
+		$('#walkhide').click(function() {
+			$('#calperwalk').hide();
+			$('#hide').hide();
+			container.setAttribute('style', 'margin-top: 10%; margin-bottom: 5%');
+		});
+		$('#hypohide').click(function() {
+			$('#hypothetical').hide();
+			$('#hide').hide();
+			container.setAttribute('style', 'margin-top: 10%; margin-bottom: 5%');
+		});
+	});	
+	const calorieAverage = 0.53;
+	const calorieFast = 0.57;
+	const calorieFaster = 0.64;
+	const calorieFastest = 0.73;
+	let container = document.getElementById('container');
+	let calpermi = document.getElementById('calpermi');
+	let speed = document.getElementById('speed');
+	let calperwalk = document.getElementById('calperwalk');
+	let hypothetical = document.getElementById('hypothetical');
+	let reset1 = document.getElementById('reset1');
+	let reset2 = document.getElementById('reset2');
+	let reset3 = document.getElementById('reset3');
+	let reset4 = document.getElementById('reset4');
+	let subweight = document.getElementById('subweight');
+	container.setAttribute('style', 'margin-top: 10%; margin-bottom: 5%');
+//calories you personally burn/mi based on weight. need to add cuts on the end of those digits but cant be assed atm
+	subweight.addEventListener('click', () => {
+		let weight = document.getElementById('miweight').value;
+		let average = Number(weight * calorieAverage).toFixed();
+		let fast = Number(weight * calorieFast).toFixed(); 
+		let faster = Number(weight * calorieFaster).toFixed();
+		let fastest = Number(weight * calorieFastest).toFixed();
+		let paragraph = document.createElement('p');
+		paragraph.textContent = `If you walk at an average pace (2.0-3.5mph) you'd burn ${average} calories/mi, if you walk fast (4mph) you'd burn ${fast} calories/mi, if you walk even faster (4.5mph) you'd burn ${faster} calories/mi, and if you walk super fast (5mph), you'd burn ${fastest} calories/mi.`
+		calpermi.appendChild(paragraph);
+		reset1.addEventListener('click', () => {calpermi.removeChild(paragraph);
+			document.getElementById('miweight').value = "";
+		});
+	});
+//calculate speed
+	subspeed.addEventListener('click', ()=>{
+		let minutesToHour = Number(document.getElementById('speedminute').value /60).toFixed(2);
+		let fractionToMinutes = Number((minutesToHour*60)/100).toFixed(2);
+		let minutes = Number(fractionToMinutes);
+		let hours = Number(document.getElementById('speedhour').value);
+			if(minutes > 0.10 && minutes <= 0.15){
+				let quarter = 0.25;
+				var totalTime = hours + quarter; 
+			} else if (minutes > 0.15 && minutes<= 0.30){
+				let half = 0.50;
+				var totalTime = hours + half;
+			}else if (minutes > 0.30 && minutes <= 0.45){
+				let threeQuarter = 0.75;
+				var totalTime = hours + threeQuarter;
+			}else if (minutes >0.45 && minutes <= 0.60){
+				let whole = 0.90;
+				var totalTime = hours + whole;
+			} else {
+				let neither = 0;
+				var totalTime = hours + neither;
+			}
+		let distance = document.getElementById('speedmiles').value;
+		let rate = distance / totalTime;
+		let paragraph = document.createElement('p');
+		paragraph.textContent = `You walked ${Number(rate).toFixed(2)} miles/hour.`
+		speed.appendChild(paragraph);
+		reset2.addEventListener('click', () => {speed.removeChild(paragraph);
+			document.getElementById('speedminute').value = "0";
+			document.getElementById('speedhour').value = "0";
+			document.getElementById('speedmiles').value = "0";
+		});
+	});
+
+// calories burned per miles walked (like you walked 3 mi and you so you burned x calories)
+	let subburned = document.getElementById('subburned');
+	subburned.addEventListener('click', ()=>{
+		let weight = document.getElementById('walkweight').value;
+		let miles = document.getElementById('walkmiles').value;
+		let mphButton = document.getElementsByName('radios1');
+		var mphValue = 0;
+			for (var i = 0; i < mphButton.length; i++){
+				if(mphButton[i].checked){
+					mphValue = mphButton[i].value;
+				};
+			};
+			if(mphValue >= 2.0 && mphValue <= 3.5){
+				var calories = (weight * calorieAverage) * miles;
+			}else if (mphValue == 4.0){
+				var calories = (weight * calorieFast) * miles;
+			} else if (mphValue == 4.5){
+				var calories = (weight * calorieFaster) * miles;
+			} else{
+				var calories = (weight * calorieFastest) * miles;
+			};
+		let paragraph = document.createElement('p');
+		paragraph.textContent =`By walking ${miles} miles at ${mphValue} mph, you burned ${calories} calories.`;
+		calperwalk.appendChild(paragraph);
+		reset3.addEventListener('click', () => {calperwalk.removeChild(paragraph);
+			document.getElementById('walkweight').value = "";
+			document.getElementById('walkmiles').value = "0";
+		});
+	});
+
+//calories burned hypothetical (wanna burn 600c? walk x mi.)
+	let subhypo = document.getElementById('subhypo');
+	subhypo.addEventListener('click', ()=>{
+		let hypocalories = document.getElementById('hypocalories').value;
+		let hypomiles = document.getElementById('hypomiles').value;
+		let hypoweight = document.getElementById('hypoweight').value;
+		if(hypocalories == ""){
+			let mphButton = document.getElementsByName('radios2');
+			var mphValue = 0;
+				for (var i = 0; i < mphButton.length; i++){
+					if(mphButton[i].checked){
+						mphValue = mphButton[i].value;
+					};
+				};
+			if(mphValue >= 2.0 && mphValue <= 3.5){
+				var calories = (hypoweight * calorieAverage) * hypomiles;
+				}else if (mphValue == 4.0){
+					var calories = (hypoweight * calorieFast) * hypomiles;
+				} else if (mphValue == 4.5){
+					var calories = (hypoweight * calorieFaster) * hypomiles;
+				} else{
+					var calories = (hypoweight * calorieFastest) * hypomiles;
+				};			
+			let paragraph = document.createElement('p');
+				paragraph.textContent = `Hypothetically, if you walked ${hypomiles} miles at ${mphValue} mph, you'd burn ${calories} calories.`
+			hypothetical.appendChild(paragraph);
+			reset4.addEventListener('click', () => {
+					hypothetical.removeChild(paragraph);
+					document.getElementById('hypocalories').value = "";
+					document.getElementById('hypomiles').value = "";
+					document.getElementById('hypoweight').value = "";
+				});
+		}else if(hypomiles == ""){
+			let mphButton = document.getElementsByName('radios2');
+			let mphValue = 0;
+				for (let i = 0; i < mphButton.length; i++){
+					if(mphButton[i].checked){
+						mphValue = mphButton[i].value;
+					};
+				};
+				if(mphValue >= 2.0 && mphValue <= 3.5){
+					var miles = Number(hypocalories /(hypoweight * calorieAverage)).toFixed(2);
+				}else if (mphValue == 4.0){
+					var miles = Number(hypocalories / (hypoweight * calorieFast)).toFixed(2);
+				} else if (mphValue == 4.5){
+					var miles = Number(hypocalories / (hypoweight * calorieFaster)).toFixed(2);
+				} else{
+					var miles = Number(hypocalories / (hypoweight * calorieFastest)).toFixed(2);
+				};
+			let paragraph = document.createElement('p');
+				paragraph.textContent = `If you wanted to burn ${hypocalories} calories walking ${mphValue} mph, you'd have to walk ${miles} miles`
+			hypothetical.appendChild(paragraph);
+			reset4.addEventListener('click', () => {
+				hypothetical.removeChild(paragraph);
+				document.getElementById('hypocalories').value = "";
+				document.getElementById('hypomiles').value = "";
+				document.getElementById('hypoweight').value = "";
+			});
+		}else if (typeof hypocalories == 'string' && typeof hypomiles == 'string'){
+			let paragraph = document.createElement('p');
+			paragraph.textContent = `Either or please :)`
+			hypothetical.appendChild(paragraph);
+			reset4.addEventListener('click', () => {
+				hypothetical.removeChild(paragraph);
+				document.getElementById('hypocalories').value = "";
+				document.getElementById('hypomiles').value = "";
+				document.getElementById('hypoweight').value = "";
+			});
+		}
+	});
+	
+
+</script>
+</body>
+</html>

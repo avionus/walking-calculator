@@ -1,0 +1,5 @@
+Easily my most ambitious project yet, I present to you the Walking Calculator! In building this calculator, I used just about everything I learned in the Odin Project to date (especially DOM manipulation and arrow functions), plus a little jQuery for flavor. I was especially proud of figuring out how to make my reset buttons not just refresh the page but actually like...reset the elements in the div they're in so people don't have like multiple answers to different questions all on the same page. I was also proud of making those little close buttons and getting the background to not look so....awful by having to stretch the picture just right.
+
+One day I'll learn/remember how to do mobile development so when my elements shrink they won't jump out of their boxes 'n stuff. But that's a later problem. 
+
+My code is probably a bit messy, and there's honestly a lot on the page. I'm sure there's a better way to do all of it and once I figure it out/learn it, I'll go back and refactor like I've done to a few other private projects, but for now, I'm proud of all 285 lines~
